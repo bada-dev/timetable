@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Holiday Class Timetable</title>
+
+<style>
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+body {
+  min-height: 100vh;
+  background: linear-gradient(
+    270deg,
+    #020617,
+    #020617,
+    #0f172a,
+    #020617
+  );
+  background-size: 600% 600%;
+  animation: bgMove 18s ease infinite;
+  color: #e5e7eb;
+  padding: 40px;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating glow shapes */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(56,189,248,0.35), transparent 70%);
+  filter: blur(40px);
+  animation: float 14s ease-in-out infinite;
+  z-index: -1;
+}
+
+body::after {
+  background: radial-gradient(circle, rgba(34,197,94,0.35), transparent 70%);
+  animation-duration: 18s;
+}
+
+@keyframes float {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(120px, -90px); }
+  100% { transform: translate(0,0); }
+}
+
+/* ================= HEADER ================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.clock {
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(2,6,23,0.6);
+  backdrop-filter: blur(8px);
+}
+
+/* ================= TABLE CARD ================= */
+.card {
+  background: rgba(2,6,23,0.65);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.4),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 14px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+tbody tr {
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(255,255,255,0.06);
+  transform: scale(1.01);
+}
+
+td {
+  padding: 16px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 15px;
+}
+
+/* ================= BADGES ================= */
+.badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.science {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #020617;
+}
+
+.maths {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: #020617;
+}
+
+.time {
+  font-weight: 700;
+  color: #fde047;
+}
+
+/* ================= FOOTER NOTE ================= */
+.note {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+  .header h1 {
+    font-size: 22px;
+  }
+  td, th {
+    padding: 12px 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Holiday Class Timetable</h1>
+  <div class="clock">12-Hour Time</div>
+</div>
+
+<div class="card">
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Class</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr onclick="location.href='https://study.brainaspire.com/s/courses/68ff52f4e69b48234b5e254b/take'">
+      <td>Monday</td>
+      <td><span class="badge science">Science</span></td>
+      <td class="time">12:00 PM – 1:00 PM</td>
+    </tr>
+
+    <tr onclick="location.href='https://study.brainaspire.com/s/courses/68ff52f4e69b48234b5e254b/take'">
+      <td>Tuesday</td>
+      <td><span class="badge science">Science</span></td>
+      <td class="time">5:00 PM – 6:00 PM</td>
+    </tr>
+
+    <tr onclick="location.href='https://study.brainaspire.com/s/courses/68ff52f4e69b48234b5e254b/take'">
+      <td>Wednesday</td>
+      <td><span class="badge science">Science</span></td>
+      <td class="time">5:00 PM – 6:00 PM</td>
+    </tr>
+
+    <tr onclick="location.href='https://study.brainaspire.com/s/courses/68ff52f4e69b48234b5e254b/take'">
+      <td>Thursday</td>
+      <td><span class="badge science">Science</span></td>
+      <td class="time">5:00 PM – 6:00 PM</td>
+    </tr>
+
+    <tr onclick="location.href='https://study.brainaspire.com/s/courses/68ff52f4e69b48234b5e254b/take'">
+      <td>Saturday</td>
+      <td><span class="badge maths">Mathematics</span></td>
+      <td class="time">12:30 PM – 2:30 PM</td>
+    </tr>
+
+    <tr onclick="location.href='https://study.brainaspire.com/s/courses/68ff52f4e69b48234b5e254b/take'">
+      <td>Sunday</td>
+      <td><span class="badge maths">Mathematics</span></td>
+      <td class="time">12:30 PM – 2:30 PM</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="note">
+Applies during holidays • Click any row to open the class page
+</div>
+
+</body>
+</html>
